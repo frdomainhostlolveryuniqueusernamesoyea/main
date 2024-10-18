@@ -1,0 +1,10 @@
+{
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/white", "status": 308, "dest": "/indexwhite.html" },
+    { "src": "/dark", "status": 308, "dest": "/index.html" },
+    { "src": "/q&a", "status": 308, "dest": "/pages/q&a.html" },
+    { "src": "/q&a.html", "status": 308, "dest": "/pages/q&a.html" },
+    { "src": "/(.*)", "status": 404, "dest": "/404/index.html" }
+  ]
+}

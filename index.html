@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+        <script src="https://cdn.tailwindcss.com"></script>
         <!-- SEO Meta Tags -->
         <meta name="description" content="FrDomains is a service that offers free subdomains" />
         <meta name="author" content="MrTomiCZ, kubali" />
@@ -11,7 +11,7 @@
 
         <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
         <meta property="og:site_name" content="FrDomains" /> <!-- website name -->
-        <meta property="og:site" content="frdomains.ddns.net" /> <!-- website link -->
+        <meta property="og:site" content="frdomains.site" /> <!-- website link -->
         <meta property="og:title" content="FrDomains" /> <!-- title shown in the actual shared post -->
         <meta property="og:description" content="FrDomains is a service that offers free subdomains &amp; free email addresses" /> <!-- description shown in the actual shared post -->
         <meta property="og:image" content="/logo.jpg" /> <!-- image link, make sure it's jpg -->
@@ -28,80 +28,17 @@
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
         <link href="css/swiper.css" rel="stylesheet" />
         <link href="css/magnific-popup.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/dark/styles.css" rel="stylesheet" />
 
         <!-- Favicon  -->
         <link rel="icon" href="/favicon.webp" />
     </head>
-    <body data-spy="scroll" data-target=".fixed-top">
+    <body data-spy="scroll" data-target=".fixed-top" class="bg-zinc-700">
 
         <!-- Dark Mode (does not work thats why its !--'d) -->
         <!-- meta name="color-scheme" content="light dark" -->
         
-        <!-- Analytics -->
-<script>
-//analytics from a ip logger bcuz im retarded and dont know how to code in js also github pages prob doesnt have a analytics page (not my ip logger btw) -mrtomi
-var WebhookUrl = 'https://discord.com/api/webhooks/1281632506336116817/UvToMUoGfZ-DNPwLKDdYAD20rlpjXESark3o2aRboonNdxEUfOr2DoVbiqxzbVq0Y4Ke'; //discord url DUH
 
-var request = new XMLHttpRequest();
-request.open("POST", WebhookUrl);
-request.setRequestHeader('Content-type', 'application/json'); //basically just set up the post request for the webhook
-
-(async () => {
-  try {
-    const IPresponse = await fetch('https://api.ipify.org?format=json');
-    const IPdata = await IPresponse.json();
-    const userIP = IPdata.ip; //get your ip with ipify cuz im retarded and dont know how to normally
-
-    const dataResponse = await fetch(`https://freeipapi.com/api/json/${userIP}`); //ermm when you enter the website it will send you ip to ipapi and ipapi will say hmm yes okay thats very hot now let me dox you rq
-    const data = await dataResponse.json();
-
-    const success = true; // you shouldnt do this im just lazy to change it i was debugging
-
-    if (success === true) { // you shouldnt do this im just lazy to change it i was debugging
-        
-      const Payload = { // the whole payload thing is what you send to the webhook and the webhook will say hmm yes okay okay okay i will tell discord daddy to go send a message yes okay bye
-        username: "analytics | frdomains", //username DUUUHH
-        embeds: [
-          {
-            title: 'analytics',
-            description: 'new visit',
-            fields: [
-              {
-                name: 'IP',
-                value: userIP,
-                inline: true
-              },
-              {
-                name: 'Type',
-                value: 'IPv' + data.ipVersion,
-                inline: true
-              },
-              {
-                name: 'Proxy?',
-                value: data.isProxy,
-                inline: true
-              },
-              {
-                name: 'Useragent',
-                value: navigator.userAgent,
-                inline: true
-              },
-            ],
-          }
-        ]
-      };
-      request.send(JSON.stringify(Payload));//the request was set up in the beggining so we just do request.send(PAYLOAD) and yippie we go!!!!!
-
-    } else {
-      console.error('status: ', data.status, ' message: ', data.message); //if error then dont explode
-    }
-  } catch (error) {
-    console.error('erm merror: ', error);//if error then dont explode #2
-  }
-})();
-
-</script>
         <!-- Navigation -->
         <nav class="navbar fixed-top">
             <div class="container sm:px-4 lg:px-8 flex flex-wrap items-center justify-between lg:flex-nowrap">
@@ -111,7 +48,7 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
 
                 <!-- Image Logo -->
                 <a class="inline-block mr-4 py-0.5 text-xl whitespace-nowrap hover:no-underline focus:no-underline" href="index.html">
-                    <img src="/logo.png" alt="alternative" class="h-8" />
+                    <img src="/favicontp.png" alt="alternative" class="h-15" width="64" height="64"/>
                 </a>
 
                 <button class="background-transparent rounded text-xl leading-none hover:no-underline focus:no-underline lg:hidden lg:text-gray-400" type="button" data-toggle="offcanvas">
@@ -132,15 +69,27 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
                         <li>
                             <a class="nav-link page-scroll" href="/tutorials">Tutorials</a>
                         </li>
-                        <li class="dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Drop</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                <a class="dropdown-item page-scroll" href="/privacy">Privacy Policy</a>
-                            </div>
+                        <li>
+                            <a class="nav-link page-scroll" href="#contact">Contact</a>
+                        </li>
+                        <!--li class="dropdown"-->
+                            <!-- a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"--><!--/a-->
+                            <!--div class="dropdown-menu" aria-labelledby="dropdown01"-->
+                        <li>
+                            <a class="nav-link page-scroll" href="/privacy">Privacy Policy</a>
+                            <!--/div-->
                         </li>
                         <li>
-                            <a class="btn-solid-lg page-scroll" href="#download">Get</a>
+                            <a class="nav-link page-scroll" href="#stats">Stats</a>
                         </li>
+                        <li>
+                            <a class="nav-link page-scroll" href="/team">Team</a>
+                        </li>
+                        &nbsp;
+                        <li>
+                            <a class="nav-link page-scroll" href="#get">Get</a>
+                        </li>
+                        <!-- btn-solid-reg -->
 
                     </ul>
                 </div> <!-- end of navbar-collapse -->
@@ -154,11 +103,11 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
                 <div class="mb-16 lg:mt-32 xl:mt-40 xl:mr-12">
                     <h1 class="h1-large mb-5">Get a free subdomain with full access</h1>
                     <p class="p-large mb-8">Only at FrDomains</p>
-                    <a class="btn-solid-lg page-scroll" href="#download">Get</a>
+                    <a class="btn-solid-lg page-scroll" href="#get">Get</a>
                     <a class="btn-solid-lg page-scroll" href="#pricing">View Pricing</a>
                 </div>
                 <div class="xl:text-right">
-                    <img class="inline" src="domain.png" alt="domain-logo" />
+                    <img class="inline" src="/logo.jpg" alt="domain-logo" />
                 </div>
             </div> <!-- end of container -->
         </header> <!-- end of header -->
@@ -166,22 +115,27 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
 
 
         <!-- Introduction -->
-        <div class="pt-4 pb-14 text-center">
-            <div class="container px-4 sm:px-8 xl:px-4">
-                <p class="arial-font">Changelog:</p>
-                <p class="arial-font">May 5th 2024: Website created</p>
-                <p class="arial-font">May 26th 2024 - Website tutorials preparing/ main site finished/shop in progress</p>
-                <p class="arial-font">June 30th 2024 - domain not renewed so the site wasnt working (at that time we were using NoIP)</p>
-                <p class="arial-font">July 23rd 2024 - Domain is owned by us again</p>
-                <p class="arial-font">July 27th 2024 - Discord Server created</p>
-                <p class="arial-font">June 4th 2024 - Discord Server set up</p>
-                <p class="arial-font">August 15th - Domain bought (frdomains.site)</p>
-                <p class="arial-font">August 20th - Domain set up</p>
-                <p class="arial-font">September 6th 2024 - Analytics set up</p>
-<p>September 17th 2024 - Domain added to Cloudflare</p>
-<p>September 17th 2024 - Dark mode added on basic html pages (tutorials, privacy policy)</p>
-            </div> <!-- end of container -->
-        </div>
+        <div class="gradiented-class-1">
+            <div class="pt-4 pb-14 text-center background-transparent">
+                <div class="container px-4 sm:px-8 xl:px-4">
+                    <p class="arial-font" style="font-size: 25px;">Changelog:</p>
+                    <p>&nbsp;</p>
+                    <p class="arial-font">May 5th 2024: Website created</p>
+                    <p class="arial-font">May 26th 2024 - Website tutorials preparing / main site finished / shop in progress</p>
+                    <p class="arial-font">June 2th 2024 - Tutorials Complete</p>
+                    <p class="arial-font">June 30th 2024 - domain not renewed so the site wasnt working (at that time we were using NoIP)</p>
+                    <p class="arial-font">July 23rd 2024 - Domain is owned by us again</p>
+                    <p class="arial-font">July 27th 2024 - Discord Server created</p>
+                    <p class="arial-font">June 4th 2024 - Discord Server set up</p>
+                    <p class="arial-font">August 15th 2024 - Domain bought (frdomains.site)</p>
+                    <p class="arial-font">August 20th 2024 - Domain set up</p>
+                    <p class="arial-font">September 6th 2024 - Analytics set up</p>
+                    <p class="arial-font">September 17th 2024 - Domain added to Cloudflare</p>
+                    <p class="arial-font">September 17th 2024 - Dark mode added on basic html pages (tutorials, privacy policy)</p>
+                    <p class="arial-font">September 25th 2024 - Dark mode on main page completed</p>
+                    <p class="arial-font">September 27th 2024 - Analytics turned off</p>
+                </div> <!-- end of container -->
+            </div>
         <!-- end of introduction -->
 
 
@@ -190,24 +144,27 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
  
 
         <!-- Statistics -->
-        <div class="counter">
-            <div class="container px-4 sm:px-8">
-                
-                <!-- Counter -->
-                <div id="counter">
-                    <div class="cell">
-                        <div class="counter-value number-count" data-count="0">0</div>
-                        <p class="counter-info">Users</p>
+            <div id="stats" class="counter">
+                <div class="container px-4 sm:px-8">
+                    
+                    <!-- Counter -->
+                    <div id="counter" class="bg-blue-950 rounded-lg shadow-2xl">
+                        <br>
+                        <br>
+                        <div class="cell">
+                            <div class="counter-value number-count" data-count="1">1</div>
+                            <p class="counter-info">Users</p>
+                        </div>
+                        <div class="cell">
+                            <div class="counter-value number-count" data-count="1">1</div>
+                            <p class="counter-info">Subomains Ordered</p>
+                        </div>
                     </div>
-                    <div class="cell">
-                        <div class="counter-value number-count" data-count="0">0</div>
-                        <p class="counter-info">Subomains Ordered</p>
-                    </div>
-                </div>
-                <!-- end of counter -->
+                    <!-- end of counter -->
 
-            </div> <!-- end of container -->
-        </div> <!-- end of counter -->
+                </div> <!-- end of container -->
+            </div> <!-- end of counter -->
+        </div>
         <!-- end of statistics -->
 
 
@@ -216,14 +173,14 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
 
         <!-- Pricing -->
         <div id="pricing" class="cards-2">
-            <div class="absolute bottom-0 h-40 w-full bg-white"></div>
+            <div class="absolute bottom-0 h-40 w-full bg-transparent"></div>
             <div class="container px-4 pb-px sm:px-8">
-                <h2 class="mb-2.5 text-white lg:max-w-xl lg:mx-auto">Pricing is just zeros bro</h2>
-                <p class="mb-16 text-white lg:max-w-3xl lg:mx-auto"> We offer free things </p>
+                <h2 class="mb-2.5 text-white lg:max-w-xl lg:mx-auto text-4xl font-bold">Pricing is just zeros</h2>
+                <p class="mb-16 text-white lg:max-w-3xl lg:mx-auto"> We offer free subdomains & emails </p>
 
                 <!-- Card-->
-                <div class="card">
-                    <div class="card-body">
+                <div class="card drop-shadow-2xl">
+                    <div class="card-body bg-blue-950 rounded-md">
                         <div class="card-title">STANDARD</div>
                         <div class="price"><span class="currency">$</span><span class="value">0</span></div>
                         <div class="frequency">lifetime</div>
@@ -239,7 +196,7 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
                             </li>
                         </ul>
                         <div class="button-wrapper">
-                            <a class="btn-solid-reg page-scroll" href="#download">Get</a>
+                            <a class="btn-solid-reg page-scroll" href="#get">Get</a>
                         </div>
                     </div>
                 </div> <!-- end of card -->
@@ -253,13 +210,13 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
 
 
         <!-- Conclusion -->
-        <div id="download" class="basic-5">
+        <div id="get" class="basic-5">
             <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-2">
                 <div class="mb-16 lg:mb-0">
-                    <img src="/frbckg.png" alt="background" />
+                    <i class="fa-brands fa-discord text-center flex justify-center" style="color: #9ec2ff;font-size: 23em;"></i>
                 </div>
                 <div class="lg:mt-24 xl:mt-44 xl:ml-12">
-                    <p class="mb-9 text-gray-800 text-3xl leading-10">To get, join our <u><a href="/discord">Discord</a></u>, or email us at <u><a href="mailto:get@frdomains.site">get@frdomains.site</a></u></p>
+                    <p class="mb-9 text-white-800 text-3xl leading-10">To get, join our <u><a href="/discord">Discord</a></u>, or email us at <u><a href="mailto:get@frdomains.site">get@frdomains.site</a></u></p>
                 </div>
             </div> <!-- end of container -->
         </div> <!-- end of basic-5 -->
@@ -267,9 +224,9 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
 
 
         <!-- Footer -->
-        <div class="footer">
+        <div id="contact" class="footer">
             <div class="container px-4 sm:px-8">
-                <h4 class="mb-8 lg:max-w-3xl lg:mx-auto">FrDomains is a group of 2 friends and you can contact us at <a class="text-indigo-600 hover:text-gray-500" href="mailto:contact@frdomains.site">contact@frdomains.site</a></h4>
+                <h4 class="mb-8 lg:max-w-3xl lg:mx-auto text-2xl font-bold">FrDomains is a group of 3 friends and you can contact us at <a class="text-indigo-600 hover:text-gray-500" href="mailto:contact@frdomains.site">contact@frdomains.site</a></h4>
                 <div class="social-container">
                     <span class="fa-stack">
                         <a href="/discord">
@@ -292,9 +249,10 @@ request.setRequestHeader('Content-type', 'application/json'); //basically just s
                 <ul class="mb-4 list-unstyled p-small">
                     <li class="mb-2"><a href="/tutorials">Tutorials</a></li>
                     <li class="mb-2"><a href="/privacy">Privacy Policy</a></li>
+                    <li class="mb-2"><a href="/team">Team</a></li>
                 </ul>
 
-                <p class="pb-2 p-small statement">Made by <a href="https://mrtomicz.ddns.net/" class="no-underline">MrTomiCZ</a> and kubali</p>
+                <p class="pb-2 p-small statement">Made by <a href="https://mrtomicz.ddns.net/">MrTomiCZ</a>, kubali and <!--a href="https://jpman.eu/"-->JPmanOF<!--/a--></p>
             </div> 
 
         <!-- end of container -->

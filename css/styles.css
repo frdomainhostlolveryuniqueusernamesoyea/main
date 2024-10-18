@@ -19,7 +19,7 @@ Table Of Contents:
 
 /*****************************************
 Colors:
-- Backgrounds - light gray #f1f9fc
+- Backgrounds - light gray #373737
 - Buttons, icons - purple #594cda
 - Buttons, icons - red #eb427e
 - Headings text - black #252c38
@@ -101,7 +101,7 @@ h6 {
 }
 
 .bg-gray {
-    background-color: #f1f9fc;
+    background-color: #373737;
 }
 
 .container {
@@ -460,7 +460,7 @@ input[type="checkbox"] {
     padding-left: 1rem;
     overflow-y: auto;
     visibility: hidden;
-    background-color: #f1f9fc;
+    background-color: #373737;
     transition: visibility 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
     transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
     transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
@@ -559,7 +559,7 @@ input[type="checkbox"] {
 .dropdown-item:hover,
 .dropdown-item:focus {
     text-decoration: none;
-    background-color: #f1f9fc;
+    background-color: #373737;
     color: #ff6e84;
 }
 
@@ -593,7 +593,7 @@ input[type="checkbox"] {
     padding: 3.125rem 1rem 2.125rem 1rem;
     border: none;
     border-radius: 16px;
-    background-color: #f1f9fc;
+    background-color: #373737;
 }
 
 .cards-1 .card-image {
@@ -948,7 +948,7 @@ a:hover.back-to-top {
 .ex-header {
     padding-top: 8.5rem;
     padding-bottom: 4rem;
-    background-color: #f1f9fc;
+    background-color: #373737;
 }
 
 .ex-basic-1 .list-unstyled .fas {
@@ -958,7 +958,7 @@ a:hover.back-to-top {
 
 .ex-basic-1 .text-box {
     padding: 1.25rem 1.25rem 0.5rem 1.25rem;
-    background-color: #f1f9fc;
+    background-color: #373737;
 }
 
 .ex-cards-1 .card {
@@ -1023,7 +1023,7 @@ a:hover.back-to-top {
     .navbar.top-nav-collapse {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
-        background-color: #f1f9fc;
+        background-color: #373737;
     }
 
     .offcanvas-collapse {
